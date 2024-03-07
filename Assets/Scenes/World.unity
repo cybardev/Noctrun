@@ -782,6 +782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 977004035}
+  PlayerSprite: {fileID: 655144048}
   jumpForce: 10
   groundLayer:
     serializedVersion: 2
@@ -789,6 +790,7 @@ MonoBehaviour:
   feetPos: {fileID: 637676054}
   groundDistance: 0.25
   jumpTime: 0.3
+  crouchHeight: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
