@@ -10,20 +10,24 @@ public class Spawner : MonoBehaviour
 
     private float timeUntilObstacleSpawn;
 
-    private void Update() {
+    private void Update()
+    {
         SpawnLoop();
     }
 
-    private void SpawnLoop() {
+    private void SpawnLoop()
+    {
         timeUntilObstacleSpawn += Time.deltaTime;
 
-        if (timeUntilObstacleSpawn >= obstacleSpawnTime) {
+        if (timeUntilObstacleSpawn >= obstacleSpawnTime)
+        {
             Spawn();
             timeUntilObstacleSpawn = 0f;
         }
     }
 
-    private void Spawn() {
+    private void Spawn()
+    {
         GameObject obstacleToSpawn = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
 
         GameObject spawnedObstacle = Instantiate(obstacleToSpawn, transform.position, Quaternion.identity);
