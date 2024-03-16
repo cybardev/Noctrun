@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -10,12 +8,13 @@ public class Spawner : MonoBehaviour
 
     private float timeUntilObstacleSpawn;
 
-    private void Update()
+    private void Start()
     {
-        SpawnLoop();
+        // ground enemies aren't stopped by the ground layer
+        Physics2D.IgnoreLayerCollision(6, 7);
     }
 
-    private void SpawnLoop()
+    private void Update()
     {
         timeUntilObstacleSpawn += Time.deltaTime;
 
