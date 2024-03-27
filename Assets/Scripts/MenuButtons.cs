@@ -11,7 +11,11 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     public void help() {
+        SceneManager.LoadSceneAsync("HelpSection");
+    }
 
+    public void back() {
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 
     public void exit() {
