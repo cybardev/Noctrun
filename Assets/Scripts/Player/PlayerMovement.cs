@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -75,6 +76,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         #endregion
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            SceneManager.LoadScene("DeathScreen");
+        }
     }
 
     private void Crouch(float height)

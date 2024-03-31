@@ -948,8 +948,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefabs:
-  - {fileID: 6375105881966516211, guid: afbc679daaa664fd4bc7c7c8f5647c2f, type: 3}
-  - {fileID: 7583701135061161092, guid: 01035a57f2d6144939b62a9c1316236c, type: 3}
+  - {fileID: 7540678205771238467, guid: 01035a57f2d6144939b62a9c1316236c, type: 3}
+  - {fileID: 5803910118327997422, guid: afbc679daaa664fd4bc7c7c8f5647c2f, type: 3}
   obstacleSpawnTime: 2
   obstacleSpeed: 4.5
 --- !u!4 &2100745680
