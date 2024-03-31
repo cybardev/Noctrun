@@ -1,2 +1,2 @@
 # ignore TextMesh Pro files from language statistics
-Assets/TextMesh[[:space:]]Pro/* linguist-vendored
+Assets/TextMesh[[:space:]]Pro/** linguist-vendored
