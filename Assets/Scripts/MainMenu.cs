@@ -7,6 +7,10 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("World");
 	}
 
+    public void MainMenuCallback() {
+        SceneManager.LoadScene("Menu");
+    }
+
     public void QuitCallback()
     {
         Debug.Log("Quitting Game...");
