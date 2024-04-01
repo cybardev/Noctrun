@@ -31,19 +31,22 @@ jobs:
 
         steps:
             # Checkout
-            - uses: actions/checkout@v4
+            - name: Checkout repository
+              uses: actions/checkout@v4
               with:
                   lfs: false
 
             # Cache
-            - uses: actions/cache@v3
+            - name: Cache Unity packages
+              uses: actions/cache@v3
               with:
                   path: Library
                   key: Library-${{ matrix.targetPlatform }}
                   restore-keys: Library-x
 
             # Build
-            - uses: game-ci/unity-builder@v4
+            - name: Build with Unity Builder
+              uses: game-ci/unity-builder@v4
               env:
                   UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
                   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
@@ -52,7 +55,8 @@ jobs:
                   targetPlatform: ${{ matrix.targetPlatform }}
 
             # Output
-            - uses: actions/upload-artifact@v4
+            - name: Upload build artifacts
+              uses: actions/upload-artifact@v4
               with:
                   name: Build-${{ matrix.targetPlatform }}
                   path: build/${{ matrix.targetPlatform }}
