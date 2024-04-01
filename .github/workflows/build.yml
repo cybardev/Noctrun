@@ -14,6 +14,12 @@ jobs:
         name: Build for ${{ matrix.targetPlatform }}
         runs-on: ubuntu-latest
         environment: build
+
+        # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+        permissions:
+            pages: write # to deploy to Pages
+            id-token: write # to verify the deployment originates from an appropriate source
+
         strategy:
             fail-fast: false
             matrix:
@@ -22,6 +28,7 @@ jobs:
                     - StandaloneOSX # Build for macOS (Intel)
                     - StandaloneLinux64 # Build for Linux
                     - WebGL # Build for WebGL
+
         steps:
             # Checkout
             - uses: actions/checkout@v4
