@@ -47,6 +47,8 @@ jobs:
 
     # Deploy WebGL build to GitHub Pages
     deploy:
+        name: Deploy WebGL to GitHub Pages
+
         # Add a dependency to the build job
         needs: build
 
