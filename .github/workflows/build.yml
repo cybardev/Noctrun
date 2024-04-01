@@ -13,9 +13,9 @@ jobs:
             fail-fast: false
             matrix:
                 targetPlatform:
-                    - StandaloneWindows64 # Build for Windows
+                    # - StandaloneWindows64 # Build for Windows
                     - StandaloneOSX # Build for macOS (Intel)
-                    - StandaloneLinux64 # Build for Linux
+                    # - StandaloneLinux64 # Build for Linux
                     - WebGL # Build for WebGL
         steps:
             # Checkout
