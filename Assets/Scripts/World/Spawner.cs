@@ -4,7 +4,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
     public float enemySpawnTime = 2f;
-    public float enemySpeed = 1f;
+    public float enemySpeed = 8f;
 
     private float timeUntilEnemySpawn;
 
