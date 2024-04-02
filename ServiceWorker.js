@@ -1,4 +1,4 @@
-const cacheName = "Naziya, Romina, Sheikh-Noctrun-0.0.118";
+const cacheName = "Naziya, Romina, Sheikh-Noctrun-0.0.123";
 const contentToCache = [
     "Build/WebGL.loader.js",
     "Build/WebGL.framework.js",
