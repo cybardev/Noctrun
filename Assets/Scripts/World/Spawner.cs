@@ -27,11 +27,11 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        GameObject obstacleToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+        GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
-        GameObject spawnedObstacle = Instantiate(obstacleToSpawn, transform.position, Quaternion.identity);
+        GameObject spawnedEnemy = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
 
-        Rigidbody2D obstacleRB = spawnedObstacle.GetComponent<Rigidbody2D>();
-        obstacleRB.velocity = Vector2.left * enemySpeed;
+        Rigidbody2D enemyRB = spawnedEnemy.GetComponent<Rigidbody2D>();
+        enemyRB.velocity = Vector2.left * enemySpeed;
     }
 }
