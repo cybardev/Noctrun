@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a1996a7792e8f09ab5508328f58ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.1
+  speed: 4
 --- !u!1 &214544875
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +646,7 @@ Transform:
   m_GameObject: {fileID: 655144046}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.5, y: -0.6, z: 0}
+  m_LocalPosition: {x: -4.5, y: -0.68, z: 0}
   m_LocalScale: {x: 0.57992595, y: 0.57992595, z: 1.1598519}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -950,7 +950,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655144046}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1613,11 +1613,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e884d112ff64bd0a292a2051b59780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefabs:
+  enemyPrefabs:
   - {fileID: 7540678205771238467, guid: 01035a57f2d6144939b62a9c1316236c, type: 3}
   - {fileID: 5803910118327997422, guid: afbc679daaa664fd4bc7c7c8f5647c2f, type: 3}
-  obstacleSpawnTime: 2
-  obstacleSpeed: 7.5
+  enemySpawnTime: 2
+  enemySpeed: 8
 --- !u!4 &2100745680
 Transform:
   m_ObjectHideFlags: 0
