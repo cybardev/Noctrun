@@ -98,7 +98,8 @@ public class PlayerMovement : MonoBehaviour
 
         #endregion
     }
-    #region Animation
+
+    #region ANIMATIONS
 
     IEnumerator AlternateSprites()
     {
