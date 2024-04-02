@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ScrollBG : MonoBehaviour
 {
-    [Range(-5f, 5f)]
-    [SerializeField] private float speed = 2.5f;
+    [Range(0f, 10f)]
+    [SerializeField] private float speed = 4f;
 
     private readonly float speedMultiplier = 0.1f;
     private float offset;
