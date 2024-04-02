@@ -1,27 +1,40 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
     #region ATTRIBUTES
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform PlayerSprite;
+    [SerializeField] private GameObject PlayerSprite;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform feetPos;
     [SerializeField] private float groundDistance = 0.25f;
     [SerializeField] private float jumpTime = 0.3f;
-    [SerializeField] private float crouchHeight = 0.5f;
+    [SerializeField] private float slideTime = 0.5f;
+
+    [SerializeField] private PolygonCollider2D[] colliders;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite[] sprites;
+    [SerializeField] private float timePerFrame = 0.2f;
 
     private bool isGrounded = false;
     private bool isJumping = false;
+    private bool isSliding = false;
     private float jumpTimer;
+    private float slideTimer;
+
+    private int currentSpriteIndex = 0;
+    private int previousSpriteIndex = 3;
+    private int jumpIndex = 4;
+    private int slideIndex = 5;
+
     #endregion
 
-    // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(AlternateSprites());
     }
 
     // Update is called once per frame
@@ -58,25 +71,69 @@ public class PlayerMovement : MonoBehaviour
 
         #endregion
 
-        #region CROUCHING
+        #region SLIDING
 
-        if (isGrounded && Input.GetKey(KeyCode.DownArrow))
+        if (isGrounded && Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Crouch(crouchHeight);
+            isSliding = true;
+        }
 
-            if (isJumping)
+        if (isSliding && Input.GetKey(KeyCode.DownArrow))
+        {
+            if (slideTimer < slideTime)
             {
-                Crouch(1f);
+                slideTimer += Time.deltaTime;
+            }
+            else
+            {
+                isSliding = false;
             }
         }
 
         if (Input.GetKeyUp(KeyCode.DownArrow))
         {
-            Crouch(1f);
+            isSliding = false;
+            slideTimer = 0f;
         }
 
         #endregion
     }
+    #region Animation
+
+    IEnumerator AlternateSprites()
+    {
+        while (true)
+        {
+            // Switch to the next sprite
+            spriteRenderer.sprite = sprites[currentSpriteIndex];
+            SetColliderForSprite();
+            previousSpriteIndex = currentSpriteIndex;
+            // Set state index
+            if (!isJumping && !isSliding)
+            {
+                currentSpriteIndex = (currentSpriteIndex + 1) % 4;
+                yield return new WaitForSeconds(timePerFrame);
+            }
+            if (isJumping)
+            {
+                currentSpriteIndex = jumpIndex;
+            }
+            if (isSliding)
+            {
+                currentSpriteIndex = slideIndex;
+            }
+            yield return null;
+        }
+    }
+
+    void SetColliderForSprite()
+    {
+        colliders[previousSpriteIndex].enabled = false;
+        colliders[currentSpriteIndex].enabled = true;
+
+    }
+
+    #endregion
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -84,12 +141,5 @@ public class PlayerMovement : MonoBehaviour
         {
             SceneManager.LoadScene("DeathScreen");
         }
-    }
-
-    private void Crouch(float height)
-    {
-        PlayerSprite.localScale = new Vector3(
-            PlayerSprite.localScale.x, height, PlayerSprite.localScale.z
-        );
     }
 }
