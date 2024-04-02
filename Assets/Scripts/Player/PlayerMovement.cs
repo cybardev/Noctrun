@@ -28,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
     private int currentSpriteIndex = 0;
     private int previousSpriteIndex = 3;
     private int jumpIndex = 4;
-    private int slideIndex = 5;
+    private int fallIndex = 5;
+    private int slideIndex = 6;
 
     #endregion
 
@@ -109,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
             SetColliderForSprite();
             previousSpriteIndex = currentSpriteIndex;
             // Set state index
-            if (!isJumping && !isSliding)
+            if (isGrounded && !isJumping && !isSliding)
             {
                 currentSpriteIndex = (currentSpriteIndex + 1) % 4;
                 yield return new WaitForSeconds(timePerFrame);
@@ -117,6 +118,10 @@ public class PlayerMovement : MonoBehaviour
             if (isJumping)
             {
                 currentSpriteIndex = jumpIndex;
+            }
+            if (!isGrounded && !isJumping)
+            {
+                currentSpriteIndex = fallIndex;
             }
             if (isSliding)
             {
