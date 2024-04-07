@@ -10,6 +10,7 @@
 
 ### Controls
 
+- **Mouse Click**: To navigate menus
 - **Up Arrow**: Jump (hold to jump higher and further)
 - **Down Arrow**: Slide (hold to slide further)
 
