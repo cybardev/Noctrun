@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d47f4ef0a6f434d43a0c68afe3a05988
+guid: 90cd4a5177c66022882d23ef6a954a71
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -53,7 +53,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -69,6 +69,19 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,10 +123,44 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
-    physicsShape: []
+    physicsShape:
+    - - {x: 186, y: 22}
+      - {x: 148, y: 31}
+      - {x: 138, y: -35}
+      - {x: 188, y: -139}
+      - {x: 168, y: -171}
+      - {x: 117, y: -195}
+      - {x: 50, y: -317}
+      - {x: 111, y: -370}
+      - {x: 115, y: -387}
+      - {x: 39, y: -394}
+      - {x: -13, y: -396}
+      - {x: -21, y: -358}
+      - {x: -118, y: -252}
+      - {x: -77, y: -223}
+      - {x: -36, y: -205}
+      - {x: -6, y: -167}
+      - {x: -56, y: -137}
+      - {x: 3, y: 98}
+      - {x: 29, y: 136}
+      - {x: 129, y: 196}
+      - {x: 153.16635, y: 234.66614}
+      - {x: 127, y: 287}
+      - {x: 148, y: 351}
+      - {x: 229, y: 356}
+      - {x: 275, y: 337}
+      - {x: 285, y: 299}
+      - {x: 262, y: 282}
+      - {x: 277, y: 248}
+      - {x: 262, y: 242}
+      - {x: 246, y: 207}
+      - {x: 211, y: 216}
+      - {x: 178, y: 71}
+      - {x: 208, y: 74}
+      - {x: 230, y: 44}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
