@@ -1,0 +1,72 @@
+name: Build and Upload Artifacts
+
+on:
+    # Rebuild on merged pull requests
+    pull_request:
+        branches:
+            - main
+
+    # Allows running this workflow manually from the Actions tab
+    workflow_dispatch:
+
+jobs:
+    build:
+        name: Build for ${{ matrix.targetPlatform }}
+        runs-on: ubuntu-latest
+        environment: build
+
+        # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+        permissions:
+            contents: write # to upload WebGL build to GitHub Pages
+            pages: write # to deploy to Pages
+            id-token: write # to verify the deployment originates from an appropriate source
+
+        strategy:
+            fail-fast: false
+            matrix:
+                targetPlatform:
+                    - StandaloneWindows64 # Build for Windows
+                    - StandaloneOSX # Build for macOS (Intel)
+                    - StandaloneLinux64 # Build for Linux
+                    - WebGL # Build for WebGL
+
+        steps:
+            # Checkout
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  lfs: false
+
+            # Cache
+            - name: Cache Unity packages
+              uses: actions/cache@v3
+              with:
+                  path: Library
+                  key: Library-${{ matrix.targetPlatform }}
+                  restore-keys: Library-x
+
+            # Build
+            - name: Build with Unity Builder
+              uses: game-ci/unity-builder@v4
+              env:
+                  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+                  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+                  UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+              with:
+                  targetPlatform: ${{ matrix.targetPlatform }}
+
+            # Output
+            - name: Upload build artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Build-${{ matrix.targetPlatform }}
+                  path: build/${{ matrix.targetPlatform }}
+
+            # Deploy (WebGL)
+            - name: Deploy WebGL build to GitHub Pages
+              if: ${{ matrix.targetPlatform == 'WebGL' }}
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./build/WebGL/WebGL/
+                  cname: noctrun.cybar.dev

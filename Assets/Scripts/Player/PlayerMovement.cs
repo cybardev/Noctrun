@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private float timePerFrame = 0.2f;
 
-    private bool isGrounded = false;
+    private bool isGrounded = true;
     private bool isJumping = false;
     private bool isSliding = false;
     private float jumpTimer;
@@ -99,7 +99,8 @@ public class PlayerMovement : MonoBehaviour
 
         #endregion
     }
-    #region Animation
+
+    #region ANIMATIONS
 
     IEnumerator AlternateSprites()
     {
