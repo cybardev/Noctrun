@@ -8,11 +8,19 @@
 - Lead Programmer: [Romina Rahman](https://github.com/Romina03)
 - Project Manager: [Sheikh Saad Abdullah](https://github.com/cybardev)
 
+## Gameplay
+
+Control the player and avoid incoming ghosts and ghouls. Player dies instantly if caught by any ghost.
+
 ## Controls
 
 - **Mouse Click**: To navigate menus
 - **Up Arrow**: Jump (hold to jump higher and further)
 - **Down Arrow**: Slide (hold to slide further)
+
+## Known Bugs
+
+- Jumping while Sliding causes unintended behaviour
 
 ## Credits
 
