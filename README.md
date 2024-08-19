@@ -1,6 +1,6 @@
 # Noctrun
 
-## Can you escape the horrors of the night?
+**Can you escape the horrors of the night?**
 
 > Made as a group project for CSCI-3827 Game Design and Development course at Saint Mary's University
 
@@ -8,10 +8,19 @@
 - Lead Programmer: [Romina Rahman](https://github.com/Romina03)
 - Project Manager: [Sheikh Saad Abdullah](https://github.com/cybardev)
 
-### Controls
+## Gameplay
 
+Control the player and avoid incoming ghosts and ghouls. Player dies instantly if caught by any ghost.
+
+## Controls
+
+- **Mouse Click**: To navigate menus
 - **Up Arrow**: Jump (hold to jump higher and further)
 - **Down Arrow**: Slide (hold to slide further)
+
+## Known Bugs
+
+- Jumping while Sliding causes unintended behaviour
 
 ## Credits
 
@@ -25,7 +34,7 @@
 - [How to Make Looping Backgrounds [Unity Tutorial] by Comp-3 Interactive on YouTube](https://youtu.be/A5YSbgqr3sc)
 - Player animations were inspired by Prince of Persia (1989)
 
-PS: no external images or audio were used directly; may have various inspirations
+> **PS**: no external images or audio were used directly; may have various inspirations
 
 ## License
 
