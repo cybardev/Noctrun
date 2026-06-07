@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] obstaclePrefabs;
-    public float obstacleSpawnTime = 2f;
-    public float obstacleSpeed = 1f;
+    [SerializeField] private GameObject[] enemyPrefabs;
+    public float enemySpawnTime = 2f;
+    public float enemySpeed = 8f;
 
-    private float timeUntilObstacleSpawn;
+    private float timeUntilEnemySpawn;
 
     private void Start()
     {
@@ -16,22 +16,22 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        timeUntilObstacleSpawn += Time.deltaTime;
+        timeUntilEnemySpawn += Time.deltaTime;
 
-        if (timeUntilObstacleSpawn >= obstacleSpawnTime)
+        if (timeUntilEnemySpawn >= enemySpawnTime)
         {
             Spawn();
-            timeUntilObstacleSpawn = 0f;
+            timeUntilEnemySpawn = 0f;
         }
     }
 
     private void Spawn()
     {
-        GameObject obstacleToSpawn = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
+        GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
-        GameObject spawnedObstacle = Instantiate(obstacleToSpawn, transform.position, Quaternion.identity);
+        GameObject spawnedEnemy = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
 
-        Rigidbody2D obstacleRB = spawnedObstacle.GetComponent<Rigidbody2D>();
-        obstacleRB.velocity = Vector2.left * obstacleSpeed;
+        Rigidbody2D enemyRB = spawnedEnemy.GetComponent<Rigidbody2D>();
+        enemyRB.velocity = Vector2.left * enemySpeed;
     }
 }

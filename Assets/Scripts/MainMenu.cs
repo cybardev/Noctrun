@@ -3,11 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayCallback() {
+    public void PlayCallback()
+    {
         SceneManager.LoadScene("World");
-	}
+    }
 
-    public void MainMenuCallback() {
+    public void MainMenuCallback()
+    {
         SceneManager.LoadScene("Menu");
     }
 
