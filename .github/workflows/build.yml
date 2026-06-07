@@ -69,4 +69,3 @@ jobs:
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ./build/WebGL/WebGL/
-                  cname: noctrun.cybar.dev
